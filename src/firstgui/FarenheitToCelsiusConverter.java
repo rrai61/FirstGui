@@ -9,14 +9,9 @@ package firstgui;
  *
  * @author ritu
  */
-public class TemperatureConverterService {
-    
-    public static double convertToFarenheit(double celsius){
-        double farenheit = (celsius * (9.0/5.0)) + 32.0;
-        return farenheit;
-    }
-    
-    public static double convertToCelsius(double farenheit){
+public class FarenheitToCelsiusConverter implements TemperatureConverterStrategy{
+    @Override
+    public double convertTemp(double farenheit){
        double celsius = (farenheit - 32.0) * (5.0/9.0);
        return celsius;
     }

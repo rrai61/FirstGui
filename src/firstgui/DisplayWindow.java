@@ -7,6 +7,7 @@ package firstgui;
 
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -153,15 +154,20 @@ public class DisplayWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoToCelsiusActionPerformed
 
+    
     private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
         // TODO add your handling code here:
         double temp = Double.parseDouble(this.txtTemperature.getText());
         double newTemp = 0.0;
+        TemperatureConverterStrategy converter;
+        
         if(rdoToCelsius.isSelected()){
-            newTemp = TemperatureConverterService.convertToCelsius(temp);
+            converter = new FarenheitToCelsiusConverter();
+            newTemp = converter.convertTemp(temp);
         }
         else if (rdoToFarenheit.isSelected()){
-           newTemp = TemperatureConverterService.convertToFarenheit(temp);            
+           converter = new CelsiusToFarenheitConverter();
+           newTemp = converter.convertTemp(temp);            
         }
         txtTemperature.setText(Double.toString(newTemp)); 
     }//GEN-LAST:event_btnConvertActionPerformed
