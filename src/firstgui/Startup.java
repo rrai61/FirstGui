@@ -9,7 +9,7 @@ package firstgui;
  *
  * @author ritu
  */
-public class FirstGui {
+public class Startup {
 
      /**
      * @param args the command line arguments
@@ -25,7 +25,7 @@ public class FirstGui {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TemperatureConverter().setVisible(true);
+                new DisplayWindow().setVisible(true);
             }
         });
     }
